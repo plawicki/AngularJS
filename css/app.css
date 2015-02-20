@@ -1,0 +1,17 @@
+form .glyphicon, .list-group .glyphicon
+{
+	font-size: 25px;
+	color: gold;
+}
+
+form textarea
+{
+	height: 150px !important;
+	resize: none;
+	
+}
+
+form input, textarea, .glyphicon
+{
+	margin-bottom: 10px;
+}
