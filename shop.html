@@ -23,9 +23,9 @@
 				  	</div>
 					<form name="reviewForm">
 						<i value="{{$index}}" class="glyphicon" ng-class="{'glyphicon-star-empty': actualStars[$parent.$index]<$index || !actualStars[$parent.$index], 'glyphicon-star': actualStars[$parent.$index]>=$index}" ng-click="setStars($parent.$index, $index)" ng-repeat="i in [1,2,3,4,5]"></i>
-						<textarea class="form-control"></textarea>
-						<input placeholder="name" class="form-control"></input>
-						<button type="submit" class="btn btn-primary">Send</button>
+						<textarea class="form-control" ng-model="form.comment"></textarea>
+						<input placeholder="name" class="form-control" ng-model="form.author"></input>
+						<button type="submit" class="btn btn-primary" ng-click="saveComment();">Send</button>
 					</form>
 				</div>
       		</div>

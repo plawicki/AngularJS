@@ -1,6 +1,34 @@
 (function(){
 
-	var app = angular.module('store', ['cart']);
+	var app = angular.module('store', ['cart', 'ngRoute']);
+
+	app.factory('weatherService', ['$http', function(http){
+		return {
+			data: null,
+			getActual: function(){
+
+				var scope = this;
+				//return http.get('http://api.openweathermap.org/data/2.5/weather?q=Gdansk,pl').success(function(data){
+				//	scope.data = data;
+				//});
+				return http.get('js/mockAPI.json').success(function(data){
+					scope.data = data;
+				});
+			}
+		}
+	}]);
+
+	app.config(function($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl : 'shop.html',
+                controller  : 'shopController'
+            })
+            .when('/weather', {
+                templateUrl : 'weather.html',
+                controller  : 'weatherController'
+            })
+    });
 
 	app.directive('shop', function(){
 		return {
@@ -10,14 +38,38 @@
 		}
 	});
 
+	app.directive('header', function(){
+		return {
+			restrict: "E",
+			templateUrl: "header.html"
+		}
+	});
+
+	app.filter('celsius', function() {
+	 	return function(value) {
+	    	return parseInt(value -273);
+	  	};
+	});
+
+	app.controller('weatherController', ['$scope', 'weatherService', function(scope, weather){
+		weather.getActual();
+		scope.weather = weather;
+	}]);
+
 	app.controller('shopController', ['$scope', function(scope){
 		scope.tab = 1;
 		scope.socks = socks;
 		scope.actualStars = actualStars;
+		scope.form = {};
 		
 		scope.setStars = function(id, value){
 			actualStars[id] = value;
 		}
+
+		scope.saveComment = function(){
+			console.log(scope.form.author, scope.form.comment, scope.actualStars);
+
+		};
 	}]);
 	
 	var actualStars = [
