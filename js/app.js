@@ -2,7 +2,15 @@
 
 	var app = angular.module('store', ['cart']);
 
-	app.controller('sell', ['$scope', function(scope){
+	app.directive('shop', function(){
+		return {
+			restrict: "E",
+			controller: 'shopController',
+			templateUrl: "shop.html"
+		}
+	});
+
+	app.controller('shopController', ['$scope', function(scope){
 		scope.tab = 1;
 		scope.socks = socks;
 		scope.actualStars = actualStars;
