@@ -59,7 +59,7 @@
 	app.controller('shopController', ['$scope', function(scope){
 		scope.tab = 1;
 		scope.socks = socks;
-		scope.actualSock = sock[0];
+		scope.actualSock = socks[0];
 		scope.actualStars = actualStars;
 		scope.form = {};
 		
@@ -68,7 +68,7 @@
 		}
 		
 		scope.actualSock = function(that){
-			scope.actualSock = sock[0];
+			scope.actualSock = socks[0];
 			console.log(that);
 		}
 
