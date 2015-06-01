@@ -75,7 +75,7 @@
 					scope.actualSock=s;
 			}
 			reviews.push({stars: 4, author: author, text: comment });
-			s.reviews.push(reviews[length-1]);
+			scope.actualSock.reviews.push(reviews[length-1]);
 		}
 
 		scope.saveComment = function(){
