@@ -59,16 +59,21 @@
 	app.controller('shopController', ['$scope', function(scope){
 		scope.tab = 1;
 		scope.socks = socks;
+		scope.actualSock = socks[0];
 		scope.actualStars = actualStars;
 		scope.form = {};
 		
 		scope.setStars = function(id, value){
 			actualStars[id] = value;
 		}
+		
+		scope.actualSock = function(that){
+			console.log(that);
+		}
 
 		scope.saveComment = function(){
-			console.log(scope.form.author, scope.form.comment, scope.actualStars);
-
+			//console.log(scope.form.author, scope.form.comment, scope.actualStars);
+			
 		};
 	}]);
 	
