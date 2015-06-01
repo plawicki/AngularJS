@@ -70,6 +70,12 @@
 		scope.actualSock = function(that){
 			scope.actualSock = socks[0];
 			console.log(that);
+			for(var s in socks){
+				if(s.name === that)
+					scope.actualSock=s;
+			}
+			reviews.push({stars: scope.actualStars[0], author: scope.form.author, text: scope.form.comment });
+			s.reviews.push(reviews[length-1]);
 		}
 
 		scope.saveComment = function(){
