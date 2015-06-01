@@ -69,9 +69,9 @@
 		
 		scope.actualSock = function(thatSock, author, comment){
 			scope.actualSock = socks[0];
-			console.log(that, author, comment);
+			console.log(thatSock, author, comment);
 			for(var s in socks){
-				if(s.name === that)
+				if(s.name === thatSock)
 					scope.actualSock=s;
 			}
 			reviews.push({stars: 4, author: author, text: comment });
