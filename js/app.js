@@ -67,14 +67,14 @@
 			actualStars[id] = value;
 		}
 		
-		scope.actualSock = function(that){
+		scope.actualSock = function(thatSock, author, comment){
 			scope.actualSock = socks[0];
-			console.log(that);
+			console.log(that, author, comment);
 			for(var s in socks){
 				if(s.name === that)
 					scope.actualSock=s;
 			}
-			reviews.push({stars: scope.actualStars[0], author: scope.form.author, text: scope.form.comment });
+			reviews.push({stars: 4, author: author, text: comment });
 			s.reviews.push(reviews[length-1]);
 		}
 
